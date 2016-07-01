@@ -1,4 +1,5 @@
-import {Controller} from '../../scripts/entities';
+// import {Controller} from '../entities';
+import { Controller } from 'angular-ecmascript/module-helpers';
 import {Meteor} from 'meteor/meteor';
 
 

@@ -1,5 +1,6 @@
 import {Meteor} from 'meteor/meteor';
-import {Controller} from "../../scripts/entities";
+// import {Controller} from "../entities";
+import { Controller } from 'angular-ecmascript/module-helpers';
 
 
 export default class MyCtrl extends Controller {
