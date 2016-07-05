@@ -1,0 +1,47 @@
+<ion-view hide-tabs="true" view-title="bar" ng-controller="FuncCtrl as func">
+
+    <ion-nav-buttons side="right">
+        <button ng-click="popover.show($event)" class="button button-clear button-dark button-icon ion-more"></button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader">
+        <div class=" button-bar">
+            <button class="button button-light button-android" ng-class="{ 'button-positive': demo == 'ios' }" ng-click="setPlatform('ios')">
+                iOS
+            </button>
+            <button class="button button-light button-android" ng-class="{ 'button-positive': demo == 'android' }" ng-click="setPlatform('android')">
+                Android
+            </button>
+            <button class="button button-light button-android" ng-class="{ 'button-positive': demo == 'ionic' }" ng-click="setPlatform('ionic')">
+                Ionic
+            </button>
+        </div>
+    </div>
+
+    <ion-content class="padding has-subheader">
+        Click the more info icon in the top right. In an actual app the platform style will automatically be set.
+    </ion-content>
+
+    <script id="templates/popover.html" type="text/ng-template">
+        <ion-popover-view>
+            <ion-content>
+                <div class="list">
+                    <a class="item" href="http://learn.ionicframework.com/" target="_blank">
+                        Learn Ionic
+                    </a>
+                    <a class="item" href="http://ionicframework.com/docs/" target="_blank">
+                        Documentation
+                    </a>
+                    <a class="item" href="http://showcase.ionicframework.com/" target="_blank">
+                        Showcase
+                    </a>
+                    <a class="item" href="http://ionicframework.com/submit-issue/" target="_blank">
+                        Submit an Issue
+                    </a>
+                    <a class="item" href="https://github.com/driftyco/ionic" target="_blank">
+                        Github Repo
+                    </a>
+                </div>
+            </ion-content>
+        </ion-popover-view>
+    </script>
+</ion-view>

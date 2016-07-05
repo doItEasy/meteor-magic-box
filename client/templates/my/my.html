@@ -1,7 +1,10 @@
-<ion-view view-title="我的">
+<ion-view view-title="我的" ng-controller="MyCtrl">
     <ion-content>
-        <ion-list>
+        <ion-refresher on-refresh="doRefresh()">
 
+        </ion-refresher>
+        <ion-list>
+            <ion-item ng-repeat="item in items">{{item}}</ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

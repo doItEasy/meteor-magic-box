@@ -1,19 +1,18 @@
 // Libs
-// import 'angular-meteor-auth';    #改为meteor add angular-meteor-auth
-// import 'angular-ui-router';      #改为driftyco:ionic
-// import 'angular-animate';        #改为driftyco:ionic
-// import 'angular-sanitize';       #改为driftyco:ionic
-
+// import 'angular-meteor-auth';    //改为meteor add angular-meteor-auth
+// import 'angular-ui-router';      //改为meteor add driftyco:ionic
+// import 'angular-animate';        //改为meteor add driftyco:ionic
+// import 'angular-sanitize';       //改为meteor add driftyco:ionic
 
 import 'angular-meteor';
+import 'ionic-native-transitions';
 import Angular from 'angular';
 import Loader from 'angular-ecmascript/module-loader';
 import {Meteor} from 'meteor/meteor';
-
 // Modules
 import TabsCtrl from '../controllers/tabs.controller';
 import HomeCtrl from '../controllers/home.controller';
-import DetailCtrl from '../controllers/detail.controller';
+import FuncCtrl from '../controllers/func.controller';
 import ListCtrl from "../controllers/list.controller";
 import SettingsCtrl from "../controllers/settings.controller";
 import MyCtrl from "../controllers/my.controller";
@@ -26,6 +25,7 @@ import Routes from '../routes';
 const AppName = 'meteor-magic-box';
 const App = Angular.module(AppName, [
     'angular-meteor',
+    'ionic-native-transitions',
     'angular-meteor.auth',
     'ionic'
 ]);
@@ -46,10 +46,29 @@ App.directive('hideTabs', function ($rootScope) {
     };
 });
 
+
+App.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+
+    $ionicConfigProvider.platform.ios.tabs.style('standard');
+    $ionicConfigProvider.platform.ios.tabs.position('bottom');
+    $ionicConfigProvider.platform.android.tabs.style('standard');
+    $ionicConfigProvider.platform.android.tabs.position('standard');
+
+    $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
+    $ionicConfigProvider.platform.android.navBar.alignTitle('center');
+
+    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
+    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
+
+    $ionicConfigProvider.platform.ios.views.transition('ios');
+    $ionicConfigProvider.platform.android.views.transition('android');
+});
+
+
 new Loader(AppName)
     .load(TabsCtrl)
     .load(HomeCtrl)
-    .load(DetailCtrl)
+    .load(FuncCtrl)
     .load(ListCtrl)
     .load(SettingsCtrl)
     .load(MyCtrl)
