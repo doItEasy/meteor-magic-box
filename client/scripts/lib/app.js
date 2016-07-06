@@ -22,8 +22,7 @@ import Routes from '../routes';
 
 
 // App
-const AppName = 'meteor-magic-box';
-const App = Angular.module(AppName, [
+const App = Angular.module('meteor-magic-box', [
     'angular-meteor',
     'ionic-native-transitions',
     'angular-meteor.auth',
@@ -65,7 +64,7 @@ App.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
 });
 
 
-new Loader(AppName)
+new Loader('meteor-magic-box')
     .load(TabsCtrl)
     .load(HomeCtrl)
     .load(FuncCtrl)
@@ -86,5 +85,5 @@ else {
 }
 
 function onReady() {
-    Angular.bootstrap(document, [AppName]);
+    Angular.bootstrap(document, ['meteor-magic-box']);
 }

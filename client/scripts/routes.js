@@ -12,8 +12,7 @@ class RoutesConfig extends Config {
     configure() {
 
 
-
-            this.$stateProvider
+        this.$stateProvider
             .state('app', {
                 url: '/app',
                 abstract: true,
@@ -169,7 +168,7 @@ class RoutesRunner extends Runner {
             const err = _.last(args);
 
             if (err === 'AUTH_REQUIRED') {
-                this.$state.go('login');
+                this.$state.go('app/home');
             }
         });
     }
