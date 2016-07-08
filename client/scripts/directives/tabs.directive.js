@@ -1,18 +1,16 @@
-import { Directive } from 'angular-ecmascript/module-helpers';
+myapp.directive('hideTabs',['$rootScope', function ($rootScope) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attributes) {
+            scope.$on('$ionicView.beforeEnter', function () {
+                scope.$watch(attributes.hideTabs, function (value) {
+                    $rootScope.hideTabs = value;
+                });
+            });
 
-
-
-export default class tabDirective extends Directive{
-    constructor() {
-        super(...arguments);
-        this.restrict = 'A';
-    }
-
-}
-
-
-
-
-
-tabDirective.$name = 'hideTabs';
-tabDirective.$inject = ['$rootScope'];
+            scope.$on('$ionicView.beforeLeave', function () {
+                $rootScope.hideTabs = false;
+            });
+        }
+    };
+}]);
