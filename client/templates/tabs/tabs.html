@@ -2,7 +2,17 @@
 <ion-tabs class="tabs-stable tabs-icon-top tabs-color-dark" ng-cloak ng-class="{'tabs-item-hide': $root.hideTabs}" >
 
     <ion-tab title="首页" icon-on="ion-ios-home" icon-off="ion-ios-home" href="#/app/home">
-        <ion-nav-view name="tab1"></ion-nav-view>
+        <ion-side-menus>
+            <!-- Left menu -->
+            <ion-side-menu side="left">
+            </ion-side-menu>
+
+            <ion-side-menu-content>
+                <ion-nav-view name="tab1"></ion-nav-view>
+            </ion-side-menu-content>
+
+        </ion-side-menus>
+
     </ion-tab>
 
     <ion-tab title="列表" icon-on="ion-ios-list" icon-off="ion-ios-list-outline" href="#/app/list">

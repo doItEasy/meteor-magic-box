@@ -1,14 +1,39 @@
-<ion-view view-title="首页">
+<ion-view view-title="首页" >
 
     <ion-nav-buttons side="left">
-        <button  class="button button-clear button-dark button-icon ion-ios-location"></button>
+        <button  class="button button-clear button-dark button-icon ion-navicon" ng-click="toggleLeft()"></button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
-        <button ng-click="home.showSearchModal()" class="button button-clear button-dark button-icon ion-ios-search"></button>
+        <button  class="button button-clear button-dark button-icon ion-compose" ng-click="showNewProductModal()"></button>
     </ion-nav-buttons>
     <ion-content class="home">
-        <ion-list>
+        <div class="home_banner">
+            <div><img src="/images/banner2.jpg" width="100%"/></div>
+            <div><img src="/images/banner1.jpg" width="100%"/></div>
+            <div><img src="/images/banner3.jpg" width="100%"/></div>
+        </div>
 
-        </ion-list>
+
+        <div class="list card" ng-repeat="item in items">
+            <div class="item">
+                <h2>{{item.name}}</h2>
+            </div>
+
+            <div class="item item-image">
+                <img src="{{item.url}}">
+            </div>
+
+            <a class="item item-icon-right assertive" href="#">
+                {{item.tagline}}
+                <i class="icon ion-arrow-right-c"></i>
+            </a>
+        </div>
+
+
     </ion-content>
+
+
+
+
 </ion-view>
+

@@ -9,19 +9,7 @@ import 'ionic-native-transitions';
 import Angular from 'angular';
 import {Meteor} from 'meteor/meteor';
 
-
-// Modules
-// import TabsCtrl from '../controllers/tabs.controller';
-// import HomeCtrl from '../controllers/home.controller';
-// import FuncCtrl from '../controllers/func.controller';
-// import ListCtrl from "../controllers/list.controller";
-// import SettingsCtrl from "../controllers/settings.controller";
-// import MyCtrl from "../controllers/my.controller";
-// import SearchService from "../services/search.service";
-// import SearchCtrl from "../controllers/search.controller";
-// import Routes from '../routes';
-
-// App
+//app
 myapp = Angular.module('meteor-magic-box', [
     'angular-meteor',
     'ionic-native-transitions',
@@ -29,27 +17,6 @@ myapp = Angular.module('meteor-magic-box', [
     'ionic'
 ]);
 
-
-
-
-
-
-
-
-
-
-
-// class TabsCtrl{}
-// new Loader('meteor-magic-box')
-//     .load(TabsCtrl)
-//     .load(HomeCtrl)
-//     .load(FuncCtrl)
-//     .load(ListCtrl)
-//     .load(SettingsCtrl)
-//     .load(MyCtrl)
-//     .load(SearchCtrl)
-//     .load(SearchService)
-//     .load(Routes);
 
 
 // Startup

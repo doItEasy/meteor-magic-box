@@ -1,4 +1,11 @@
-myapp.controller('FuncCtrl',['$scope','$state','$ionicActionSheet','$ionicPopup',function ($scope, $state,$ionicActionSheet,$ionicPopup) {
+myapp.controller('FuncCtrl',['$scope','$state','$ionicActionSheet','$ionicPopup','$ionicPopover',function ($scope,$state,$ionicActionSheet,$ionicPopup,$ionicPopover) {
+
+
+    $scope.showActionSheet = showActionSheet;
+    $scope.showPopup = showPopup;
+    $scope.showConfirm = showConfirm;
+    $scope.showAlert = showAlert;
+
 
     $scope.demo = 'ios';
     $scope.setPlatform = function(p) {
@@ -7,13 +14,6 @@ myapp.controller('FuncCtrl',['$scope','$state','$ionicActionSheet','$ionicPopup'
         document.body.classList.add('platform-' + p);
         $scope.demo = p;
     }
-
-
-    $scope.showActionSheet = showActionSheet;
-    $scope.showPopup = showPopup;
-    $scope.showConfirm = showConfirm;
-    $scope.showAlert = showAlert;
-
 
     function showActionSheet(){
 
@@ -88,6 +88,21 @@ myapp.controller('FuncCtrl',['$scope','$state','$ionicActionSheet','$ionicPopup'
         });
     };
 }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // import { Controller } from 'angular-ecmascript/module-helpers';
 // import {Meteor} from 'meteor/meteor';

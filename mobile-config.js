@@ -47,14 +47,19 @@ App.launchScreens({
 
 App.setPreference('BackgroundColor', '0XFFFFFFFF');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
+App.setPreference('LoadUrlTimeoutValue', 0);
+
+//StatusBar
 App.setPreference('StatusBarOverlaysWebView', false);
 App.setPreference('StatusBarBackgroundColor', "#3a393e");
 App.setPreference('StatusBarStyle', "lightcontent");
 
+
+//SplashScreen
 App.setPreference('SplashScreenDelay', 3000);
-
-App.setPreference('LoadUrlTimeoutValue', 0);
-
+App.setPreference('AutoHideSplashScreen', true);
+App.setPreference('SplashShowOnlyFirstTime', false);
+App.setPreference('SplashShowOnlyFirstTime', false);
 
 
 

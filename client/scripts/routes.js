@@ -44,6 +44,14 @@ function config($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('app.about', {
+            url: '/about',
+            views: {
+                'tab4': {
+                    templateUrl: 'client/templates/settings/about.html'
+                }
+            }
+        })
         .state('app.actionsheet', {
             url: '/actionsheet',
             views: {
@@ -132,6 +140,7 @@ function config($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+
         .state('app.listdemo', {
             url: '/listdemo',
             views: {
@@ -140,6 +149,7 @@ function config($stateProvider, $urlRouterProvider) {
                 }
             }
         });
+
 
     $urlRouterProvider.otherwise('app/home');
 }
