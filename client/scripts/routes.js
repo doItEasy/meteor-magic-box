@@ -76,6 +76,15 @@ function config($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('app.side', {
+            url: '/side',
+            views: {
+                'tab2': {
+                    templateUrl: 'client/templates/list/function/side.html',
+                    controller: 'FuncCtrl as func'
+                }
+            }
+        })
         .state('app.bar', {
             url: '/bar',
             views: {

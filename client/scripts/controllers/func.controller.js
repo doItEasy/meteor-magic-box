@@ -1,10 +1,11 @@
-myapp.controller('FuncCtrl',['$scope','$state','$ionicActionSheet','$ionicPopup','$ionicPopover',function ($scope,$state,$ionicActionSheet,$ionicPopup,$ionicPopover) {
+myapp.controller('FuncCtrl',['$scope','$state','$ionicActionSheet','$ionicPopup','$ionicPopover','$ionicSideMenuDelegate',function ($scope,$state,$ionicActionSheet,$ionicPopup,$ionicPopover,$ionicSideMenuDelegate) {
 
 
     $scope.showActionSheet = showActionSheet;
     $scope.showPopup = showPopup;
     $scope.showConfirm = showConfirm;
     $scope.showAlert = showAlert;
+    $scope.toggleRight = toggleRight;
 
 
     $scope.demo = 'ios';
@@ -87,6 +88,11 @@ myapp.controller('FuncCtrl',['$scope','$state','$ionicActionSheet','$ionicPopup'
             console.log('Thank you for not eating my delicious ice cream cone');
         });
     };
+
+    function toggleRight() {
+        $ionicSideMenuDelegate.toggleRight();
+    };
+
 }]);
 
 

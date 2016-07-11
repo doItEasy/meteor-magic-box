@@ -18,7 +18,6 @@ myapp = Angular.module('meteor-magic-box', [
 ]);
 
 
-
 // Startup
 if (Meteor.isCordova) {
     Angular.element(document).on('deviceready', onReady);

@@ -1,13 +1,18 @@
 myapp.controller('HomeCtrl',['$scope','$ionicModal','$ionicSideMenuDelegate',function ($scope,$ionicModal,$ionicSideMenuDelegate) {
 
     $scope.showNewProductModal = showNewProductModal;
-    $scope.toggleLeft = toggleLeft;
     $scope.createProduct = createProduct;
+
+
+
     $scope.items =  $scope.$meteorCollection(function () {
         return Products.find({});
     }, false);
 
 
+    
+    
+    
 
     $('.home_banner').slick({
         dots: true,
@@ -38,10 +43,6 @@ myapp.controller('HomeCtrl',['$scope','$ionicModal','$ionicSideMenuDelegate',fun
             $scope.modal.show();
         });
     }
-
-    function toggleLeft() {
-        $ionicSideMenuDelegate.toggleLeft();
-    };
 
 
 }]);
