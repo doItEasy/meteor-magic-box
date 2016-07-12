@@ -4,15 +4,23 @@
         <button  class="button button-clear button-dark button-icon ion-ios-location" ng-click="showMaphModal()"></button>
     </ion-nav-buttons>
     <ion-content>
-        <ion-refresher on-refresh="doRefresh()">
-
+        <ion-refresher pulling-text="下拉刷新..." pulling-icon="ion-arrow-down-c" refreshing-icon="ion-load-a"
+                       on-refresh="doRefresh()">
         </ion-refresher>
+
         <ion-list>
             <ion-item  class="item item-avatar" ng-repeat="item in items">
-                    <img src={{item.url}}>
-                    <h2>{{item.name}}</h2>
-                    <p>{{item.tagline}}</p>
+                <img src={{item.url}}>
+                <h2>{{item.name}}</h2>
+                <p>{{item.tagline}}</p>
             </ion-item>
         </ion-list>
+
+        <ion-infinite-scroll distance="1%" icon="ion-loading-d" on-infinite="loadMore()" >
+
+        </ion-infinite-scroll>
+
+
+
     </ion-content>
 </ion-view>

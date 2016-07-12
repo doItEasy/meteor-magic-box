@@ -4,7 +4,7 @@ myapp.controller('MyCtrl',['$scope','$state','$ionicModal',function ($scope, $st
 
     $scope.showMaphModal = showMaphModal;
     $scope.doRefresh =doRefresh;
-
+    $scope.loadMore = loadMore;
     
 
     $scope.items =  $scope.$meteorCollection(function () {
@@ -27,6 +27,20 @@ myapp.controller('MyCtrl',['$scope','$state','$ionicModal',function ($scope, $st
 
     };
 
+
+    function loadMore() {
+        console.log('loadMore!');
+        var newItem = {};
+        newItem.name="美女";
+        newItem.tagline="美女图片欣赏美女图片欣赏美女图片欣赏美女图片欣赏";
+        newItem.url="http://d.hiphotos.baidu.com/image/pic/item/0ff41bd5ad6eddc492d491153ddbb6fd52663328.jpg";
+
+        //simulate async response
+        $scope.items.push(newItem);
+
+        //Stop the ion-refresher from spinning
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+    }
 
     function showMaphModal(){
         $ionicModal.fromTemplateUrl('client/templates/modals/mapModal.html', {

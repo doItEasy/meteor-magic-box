@@ -1,9 +1,9 @@
-import 'slick-carousel';
-import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel';
+// import 'slick-carousel/slick/slick.css';
 
 
 
-myapp.controller('HomeCtrl',['$scope','$ionicModal','$ionicSideMenuDelegate',function ($scope,$ionicModal,$ionicSideMenuDelegate) {
+myapp.controller('HomeCtrl',['$scope','$ionicModal','$ionicSlideBoxDelegate',function ($scope,$ionicModal,$ionicSlideBoxDelegate) {
 
     $scope.showNewProductModal = showNewProductModal;
     $scope.createProduct = createProduct;
@@ -14,16 +14,15 @@ myapp.controller('HomeCtrl',['$scope','$ionicModal','$ionicSideMenuDelegate',fun
         return Products.find({});
     }, false);
 
-    
-    $('.home_banner').slick({
-        dots: true,
-        infinite: true,
-        fade: true,
-        arrows:false,
-        mobileFirst:true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
+    // $('.home_banner').slick({
+    //     dots: true,
+    //     infinite: true,
+    //     fade: true,
+    //     arrows:false,
+    //     mobileFirst:true,
+    //     autoplay: true,
+    //     autoplaySpeed: 3000
+    // });
 
     $scope.$on('$destroy', function () {
         $scope.modal.remove();
