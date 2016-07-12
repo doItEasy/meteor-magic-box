@@ -1,3 +1,8 @@
+import 'slick-carousel';
+import 'slick-carousel/slick/slick.css';
+
+
+
 myapp.controller('HomeCtrl',['$scope','$ionicModal','$ionicSideMenuDelegate',function ($scope,$ionicModal,$ionicSideMenuDelegate) {
 
     $scope.showNewProductModal = showNewProductModal;
@@ -9,20 +14,17 @@ myapp.controller('HomeCtrl',['$scope','$ionicModal','$ionicSideMenuDelegate',fun
         return Products.find({});
     }, false);
 
-
     
-    
-    
-
     $('.home_banner').slick({
         dots: true,
         infinite: true,
         fade: true,
+        arrows:false,
+        mobileFirst:true,
         autoplay: true,
-        autoplaySpeed: 3000,
-        cssEase: 'linear'
+        autoplaySpeed: 3000
     });
-    
+
     $scope.$on('$destroy', function () {
         $scope.modal.remove();
     });
