@@ -17,7 +17,7 @@ myapp.controller('MyCtrl',['$scope','$state','$ionicModal',function ($scope, $st
         var newItem = {};
         newItem.name="美女";
         newItem.tagline="美女图片欣赏美女图片欣赏美女图片欣赏美女图片欣赏";
-        newItem.url="http://d.hiphotos.baidu.com/image/pic/item/0ff41bd5ad6eddc492d491153ddbb6fd52663328.jpg";
+        newItem.url="http://7xl5o6.com1.z0.glb.clouddn.com/e61190ef76c6a7ef230806c9f9faaf51f3de6637.jpg";
 
         //simulate async response
         $scope.items.push(newItem);
@@ -33,7 +33,7 @@ myapp.controller('MyCtrl',['$scope','$state','$ionicModal',function ($scope, $st
         var newItem = {};
         newItem.name="美女";
         newItem.tagline="美女图片欣赏美女图片欣赏美女图片欣赏美女图片欣赏";
-        newItem.url="http://d.hiphotos.baidu.com/image/pic/item/0ff41bd5ad6eddc492d491153ddbb6fd52663328.jpg";
+        newItem.url="http://7xl5o6.com1.z0.glb.clouddn.com/e61190ef76c6a7ef230806c9f9faaf51f3de6637.jpg";
 
         //simulate async response
         $scope.items.push(newItem);

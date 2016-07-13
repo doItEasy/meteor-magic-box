@@ -11,6 +11,7 @@
     "ionic-native-transitions": "^1.0.0-rc11",
     "meteor-node-stubs": "~0.2.0",
     "moment": "^2.13.0",
+    "ng-cordova": "^0.1.27-alpha",
     "slick-carousel": "^1.6.0"
   }
 }

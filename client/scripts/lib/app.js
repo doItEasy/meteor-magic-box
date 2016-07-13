@@ -5,6 +5,7 @@
 // import 'angular-sanitize';       //改为meteor add driftyco:ionic
 
 import 'angular-meteor';
+import 'ng-cordova';
 import 'ionic-native-transitions';
 import Angular from 'angular';
 import {Meteor} from 'meteor/meteor';
@@ -12,6 +13,7 @@ import {Meteor} from 'meteor/meteor';
 //app
 myapp = Angular.module('meteor-magic-box', [
     'angular-meteor',
+    'ngCordova',
     'ionic-native-transitions',
     'angular-meteor.auth',
     'ionic'

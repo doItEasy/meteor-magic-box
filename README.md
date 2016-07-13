@@ -2,7 +2,7 @@
 meteor ionic angular
 
 
-1.meteor npm install --save
+1.npm install --save
 2.meteor run
 
 
