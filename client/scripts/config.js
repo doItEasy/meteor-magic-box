@@ -33,12 +33,12 @@ myapp.run(['$ionicPlatform','$rootScope','$location','$ionicHistory','$cordovaTo
     //双击退出
     $ionicPlatform.registerBackButtonAction(function (e) {
         //判断处于哪个页面时双击退出
-        if ($location.path() == '/app/home' || $location.path() == '/app/my' || $location.path() == '/app/home') {
+        if ($location.path() == '/app/home'|| $location.path() == '/app/list' || $location.path() == '/app/my' || $location.path() == '/app/settings') {
             if ($rootScope.backButtonPressedOnceToExit) {
                 ionic.Platform.exitApp();
             } else {
                 $rootScope.backButtonPressedOnceToExit = true;
-                $cordovaToast.showShortBottom('再按一次退出系统');
+                $cordovaToast.showShortBottom('再按一次退出程序');
                 setTimeout(function () {
                     $rootScope.backButtonPressedOnceToExit = false;
                 }, 2000);
@@ -48,7 +48,7 @@ myapp.run(['$ionicPlatform','$rootScope','$location','$ionicHistory','$cordovaTo
             $ionicHistory.goBack();
         } else {
             $rootScope.backButtonPressedOnceToExit = true;
-            $cordovaToast.showShortBottom('再按一次退出系统');
+            $cordovaToast.showShortBottom('再按一次退出程序');
             setTimeout(function () {
                 $rootScope.backButtonPressedOnceToExit = false;
             }, 2000);
