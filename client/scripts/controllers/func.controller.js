@@ -20,9 +20,7 @@ myapp.controller('FuncCtrl',['$scope','$rootScope','$state','$ionicActionSheet',
     }
 
     if (Meteor.isCordova) {
-        var type = $cordovaNetwork.getNetwork();
-        var isOnline = $cordovaNetwork.isOnline();
-        var isOffline = $cordovaNetwork.isOffline();
+
 
 
         // listen for Online event
@@ -42,12 +40,16 @@ myapp.controller('FuncCtrl',['$scope','$rootScope','$state','$ionicActionSheet',
 
     function showDeviceInfo() {
         if (Meteor.isCordova) {
-            $scope.devices.device = $cordovaDevice.getDevice();
-            $scope.devices.cordova = $cordovaDevice.getCordova();
-            $scope.devices.model = $cordovaDevice.getModel();
-            $scope.devices.platform = $cordovaDevice.getPlatform();
-            $scope.devices.uuid = $cordovaDevice.getUUID();
-            $scope.devices.version = $cordovaDevice.getVersion();
+            var isOnline = $cordovaNetwork.isOnline();
+            var isOffline = $cordovaNetwork.isOffline();
+            $scope.devices.device = "device:"+ JSON.stringify($cordovaDevice.getDevice());
+            $scope.devices.netType = "网络类型:"+$cordovaNetwork.getNetwork();
+            $scope.devices.isOnline = "网络是否连接:"+$cordovaNetwork.isOnline();
+            $scope.devices.cordova = "cordova:"+$cordovaDevice.getCordova();
+            $scope.devices.model = "model:"+$cordovaDevice.getModel();
+            $scope.devices.platform = "platform:"+$cordovaDevice.getPlatform();
+            $scope.devices.uuid = "uuid:"+$cordovaDevice.getUUID();
+            $scope.devices.version = "version:"+$cordovaDevice.getVersion();
         }else{
             $ionicPopup.alert({
                 template: '此功能只在app中提供'
