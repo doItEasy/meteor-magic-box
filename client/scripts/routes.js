@@ -149,7 +149,14 @@ function config($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-
+        .state('app.device', {
+            url: '/device',
+            views: {
+                'tab2': {
+                    templateUrl: 'client/templates/list/function/device.html'
+                }
+            }
+        })
         .state('app.listdemo', {
             url: '/listdemo',
             views: {

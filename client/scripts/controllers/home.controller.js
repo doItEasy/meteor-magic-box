@@ -3,11 +3,10 @@
 
 
 
-myapp.controller('HomeCtrl',['$scope','$ionicModal','$ionicSlideBoxDelegate',function ($scope,$ionicModal,$ionicSlideBoxDelegate) {
+myapp.controller('HomeCtrl',['$scope','$rootScope','$ionicModal',function ($scope,$rootScope,$ionicModal) {
 
     $scope.showNewProductModal = showNewProductModal;
     $scope.createProduct = createProduct;
-
 
 
     $scope.items =  $scope.$meteorCollection(function () {

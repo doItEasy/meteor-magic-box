@@ -1,0 +1,20 @@
+<ion-view hide-tabs="true" view-title="设备信息" ng-controller="FuncCtrl as func">
+    <ion-content padding="10">
+
+        <button class="button  button-full button-positive" ng-click="showDeviceInfo()">
+            show deviceInfo
+        </button>
+
+        <div>
+            <p>{{devices.device}}</p>
+            <p>cordova:{{devices.cordova}}</p>
+            <p>model:{{devices.model}}</p>
+            <p>platform:{{devices.platform}}</p>
+            <p>uuid:{{devices.uuid}}</p>
+            <p>version:{{devices.version}}</p>
+        </div>
+
+   </ion-content>
+
+
+</ion-view>
