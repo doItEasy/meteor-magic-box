@@ -18,11 +18,11 @@ myapp.controller('FuncCtrl', ['$scope', '$rootScope', '$state', '$ionicActionShe
             document.body.classList.add('platform-' + p);
             $scope.demo = p;
         }
-        $ionicPopover.fromTemplateUrl('templates/popover.html', {
-            scope: $scope,
-        }).then(function (popover) {
-            $scope.popover = popover;
-        });
+        // $ionicPopover.fromTemplateUrl('templates/popover.html', {
+        //     scope: $scope,
+        // }).then(function (popover) {
+        //     $scope.popover = popover;
+        // });
 
         if (Meteor.isCordova) {
 

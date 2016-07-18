@@ -10,6 +10,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.home', {
             url: '/home',
+            nativeTransitions: null,
             views: {
                 'tab1': {
                     templateUrl: 'client/templates/home/home.html',
@@ -19,6 +20,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.list', {
             url: '/list',
+            nativeTransitions: null,
             views: {
                 'tab2': {
                     templateUrl: 'client/templates/list/list.html',
@@ -28,6 +30,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.my', {
             url: '/my',
+            nativeTransitions: null,
             views: {
                 'tab3': {
                     templateUrl: 'client/templates/my/my.html',
@@ -37,6 +40,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.settings', {
             url: '/settings',
+            nativeTransitions: null,
             views: {
                 'tab4': {
                     templateUrl: 'client/templates/settings/settings.html',
@@ -135,6 +139,9 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.forms', {
             url: '/forms',
+            nativeTransitions: {
+                "type": "fade"
+            },
             views: {
                 'tab2': {
                     templateUrl: 'client/templates/list/function/forms.html'
@@ -151,6 +158,10 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.device', {
             url: '/device',
+            nativeTransitions: {
+                "type": "flip",
+                "direction": "up"
+            },
             views: {
                 'tab2': {
                     templateUrl: 'client/templates/list/function/device.html'

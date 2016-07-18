@@ -61,7 +61,9 @@ App.setPreference('AutoHideSplashScreen', true);
 App.setPreference('SplashShowOnlyFirstTime', false);
 App.setPreference('SplashShowOnlyFirstTime', false);
 
-
+App.configurePlugin('cordova-plugin-splashscreen', {
+    GUIDE_DEF_NUM: 0
+});
 
 
 
