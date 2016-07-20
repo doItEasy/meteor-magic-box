@@ -12,11 +12,17 @@ myapp.config(['$stateProvider','$urlRouterProvider','$ionicConfigProvider',funct
 
     $ionicConfigProvider.platform.ios.views.transition('ios');
     $ionicConfigProvider.platform.android.views.transition('android');
+    // $ionicConfigProvider.views.swipeBackEnabled(false);
 
 }]);
 
 
-myapp.config(['$ionicNativeTransitionsProvider',function($ionicNativeTransitionsProvider){
+myapp.config(['$ionicNativeTransitionsProvider','$ionicConfigProvider',function($ionicNativeTransitionsProvider,$ionicConfigProvider){
+
+    if(navigator.userAgent.match(/(iPad|iPhone|iOS)/gi)){//ios无需nativeTransition
+        $ionicNativeTransitionsProvider.enable(false);
+
+    }
     $ionicNativeTransitionsProvider.setDefaultOptions({
         duration: 300, // in milliseconds (ms), default 400,
         slowdownfactor: 4, // overlap views (higher number is more) or no overlap (1), default 4
@@ -36,6 +42,7 @@ myapp.config(['$ionicNativeTransitionsProvider',function($ionicNativeTransitions
         type: 'slide',
         direction: 'right'
     });
+
 
 }]);
 
