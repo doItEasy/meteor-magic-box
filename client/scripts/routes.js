@@ -56,6 +56,14 @@ function config($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('app.photobrowser', {
+            url: '/photobrowser',
+            views: {
+                'tab2': {
+                    templateUrl: 'client/templates/list/function/photobrowser.html'
+                }
+            }
+        })
         .state('app.actionsheet', {
             url: '/actionsheet',
             views: {
@@ -153,6 +161,22 @@ function config($stateProvider, $urlRouterProvider) {
             views: {
                 'tab2': {
                     templateUrl: 'client/templates/list/function/slide.html'
+                }
+            }
+        })
+        .state('app.slide2', {
+            url: '/slide2',
+            views: {
+                'tab2': {
+                    templateUrl: 'client/templates/list/function/slide2.html'
+                }
+            }
+        })
+        .state('app.datepicker', {
+            url: '/datepicker',
+            views: {
+                'tab2': {
+                    templateUrl: 'client/templates/list/function/datepicker.html'
                 }
             }
         })

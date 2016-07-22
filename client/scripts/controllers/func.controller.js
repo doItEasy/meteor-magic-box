@@ -1,5 +1,8 @@
-myapp.controller('FuncCtrl', ['$scope', '$rootScope', '$state', '$ionicActionSheet', '$ionicPopup', '$ionicPopover', '$ionicSideMenuDelegate', '$cordovaToast', '$cordovaNetwork', '$cordovaDevice',
-    function ($scope, $rootScope, $state, $ionicActionSheet, $ionicPopup, $ionicPopover, $ionicSideMenuDelegate, $cordovaToast, $cordovaNetwork, $cordovaDevice) {
+import {Meteor} from 'meteor/meteor';
+
+
+myapp.controller('FuncCtrl', ['$scope', '$rootScope', '$state', '$ionicActionSheet', '$ionicPopup', '$ionicPopover', '$ionicSideMenuDelegate', '$cordovaToast', '$cordovaNetwork', '$cordovaDevice','ionicDatePicker',
+    function ($scope, $rootScope, $state, $ionicActionSheet, $ionicPopup, $ionicPopover, $ionicSideMenuDelegate, $cordovaToast, $cordovaNetwork, $cordovaDevice, ionicDatePicker) {
 
 
         $scope.showActionSheet = showActionSheet;
@@ -9,7 +12,7 @@ myapp.controller('FuncCtrl', ['$scope', '$rootScope', '$state', '$ionicActionShe
         $scope.toggleRight = toggleRight;
         $scope.showDeviceInfo = showDeviceInfo;
         $scope.devices = {};
-
+        $scope.f7url = location.origin+"/f7/framework7.ios.css";
 
         $scope.demo = 'ios';
         $scope.setPlatform = function (p) {
@@ -18,29 +21,115 @@ myapp.controller('FuncCtrl', ['$scope', '$rootScope', '$state', '$ionicActionShe
             document.body.classList.add('platform-' + p);
             $scope.demo = p;
         }
-        // $ionicPopover.fromTemplateUrl('templates/popover.html', {
-        //     scope: $scope,
-        // }).then(function (popover) {
-        //     $scope.popover = popover;
-        // });
+        $scope.onSlideMove = function(data){
+            $cordovaToast.showLongCenter("You have selected " + data.index + " tab");
+        };
+        $scope.items =  $scope.$meteorCollection(function () {
+            return Products.find({});
+        }, false);
+        $scope.photoBrowser = photoBrowser;
+
+        function photoBrowser(index){
+            photoBrowserStandalone(index, $scope.items)
+        }
+        var navbarTemplate =
+            '<div class="navbar">' +
+            '<div class="navbar-inner">' +
+            '<div class="left sliding">' +
+            '<a class="link close-popup photo-browser-close-link {{#unless backLinkText}}icon-only{{/unless}} {{js "this.type === \'page\' ? \'back\' : \'\'"}}">' +
+            '<i class="icon icon-back {{iconsColorClass}}"></i>' +
+            '{{#if backLinkText}}<span>{{backLinkText}}</span>{{/if}}' +
+            '</a>' +
+            '</div>' +
+            '<div class="center sliding">' +
+            '<span class="photo-browser-current"></span> ' +
+            '<span class="photo-browser-of">{{ofText}}</span> ' +
+            '<span class="photo-browser-total"></span>' +
+            '</div>' +
+            '<div class="right"></div>' +
+            '</div>' +
+            '</div>';
+        function photoBrowserStandalone(index, images){
+            var myApp = new Framework7({
+                init: false, //IMPORTANT - just do it, will write about why it needs to false later
+            });
+            var myPhotoBrowserStandalone = myApp.photoBrowser({
+                navbarTemplate :navbarTemplate,
+                photos : images,
+                initialSlide: index,
+                onClose: function(){
+                    myApp = undefined;
+                }
+            });
+            myPhotoBrowserStandalone.open();
+        }
+
+    
+
 
         if (Meteor.isCordova) {
-
-
-
             // listen for Online event
             $rootScope.$on('$cordovaNetwork:online', function (event, networkState) {
                 $cordovaToast.showShortBottom('网络正常');
 
             })
-
             // listen for Offline event
             $rootScope.$on('$cordovaNetwork:offline', function (event, networkState) {
                 $cordovaToast.showShortBottom('网络异常');
 
             })
         }
+        $scope.openDatePickerOne = function (val) {
+            var ipObj1 = {
+                callback: function (val) {  //Mandatory
+                    console.log('Return value from the datepicker popup is : ' + val, new Date(val));
+                    $scope.selectedDate1 = new Date(val);
+                },
+                disabledDates: [
+                    new Date(2016, 2, 16),
+                    new Date(2015, 3, 16),
+                    new Date(2015, 4, 16),
+                    new Date(2015, 5, 16),
+                    new Date('Wednesday, August 12, 2015'),
+                    new Date("08-16-2016"),
+                    new Date(1439676000000)
+                ],
+                from: new Date(2012, 1, 1),
+                to: new Date(2016, 10, 30),
+                inputDate: new Date(),
+                mondayFirst: true,
+                disableWeekdays: [0],
+                closeOnSelect: false,
+                templateType: 'popup'
+            };
+            ionicDatePicker.openDatePicker(ipObj1);
+        };
 
+        $scope.openDatePickerTwo = function (val) {
+            var ipObj1 = {
+                callback: function (val) {  //Mandatory
+                    console.log('Return value from the datepicker modal is : ' + val, new Date(val));
+                    $scope.selectedDate2 = new Date(val);
+                },
+                disabledDates: [
+                    new Date(1437719836326),
+                    new Date(2016, 1, 25),
+                    new Date(2015, 7, 10),
+                    new Date('Wednesday, August 12, 2015'),
+                    new Date("08-14-2015"),
+                    new Date(1439676000000),
+                    new Date(1456511400000)
+                ],
+                from: new Date(2012, 8, 2),
+                to: new Date(2016, 8, 25),
+                inputDate: new Date(),
+                mondayFirst: true,
+                showTodayButton: false,
+                closeOnSelect: false,
+                templateType: 'modal'
+            };
+            ionicDatePicker.openDatePicker(ipObj1);
+        }
 
         function showDeviceInfo() {
             if (Meteor.isCordova) {

@@ -7,6 +7,7 @@
 import 'angular-meteor';
 import 'ng-cordova';
 import 'ionic-native-transitions';
+import 'ionic-datepicker';
 import Angular from 'angular';
 import {Meteor} from 'meteor/meteor';
 
@@ -15,6 +16,8 @@ myapp = Angular.module('meteor-magic-box', [
     'angular-meteor',
     'ngCordova',
     'ionic-native-transitions',
+    'ionic-datepicker',
+    'tabSlideBox',
     'angular-meteor.auth',
     'ionic'
 ]);

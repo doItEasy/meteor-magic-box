@@ -1,0 +1,17 @@
+<ion-view hide-tabs="true" title="Tabbed Slide box" ng-controller="FuncCtrl as func">
+    <ion-content >
+        <div class="card padding">
+            <button class="button button-positive button-block" style="margin: 0;"
+                    ng-click="openDatePickerOne()">DatePickerOne
+            </button>
+            <div class="text-center padding-top" ng-if="selectedDate1">{{selectedDate1 | date:'longDate'}}</div>
+        </div>
+
+        <div class="card padding">
+            <button class="button button-positive button-block" style="margin: 0;"
+                    ng-click="openDatePickerTwo()">DatePickerTwo
+            </button>
+            <div class="text-center padding-top" ng-if="selectedDate2">{{selectedDate2 | date:'longDate'}}</div>
+        </div>
+    </ion-content>
+</ion-view>
