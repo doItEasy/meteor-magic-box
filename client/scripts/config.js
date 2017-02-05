@@ -90,7 +90,9 @@ myapp.run(['$ionicPlatform','$rootScope','$location','$ionicHistory','$cordovaTo
             }
         }
         else if ($ionicHistory.backView()) {
+            $ionicNativeTransitions.unregisterToStateChangeStartEvent();
             $ionicHistory.goBack();
+            $ionicNativeTransitions.transition('back');
         } else {
             $rootScope.backButtonPressedOnceToExit = true;
             $cordovaToast.showShortBottom('再按一次退出程序');

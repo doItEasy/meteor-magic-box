@@ -8,6 +8,8 @@ App.info({
 });
 
 App.icons({
+    'iphone_2x': 'public/icons/iphone.png',
+    'iphone_3x': 'public/icons/iphone.png',
     'ios_settings': 'public/icons/iphone.png',
     'ios_settings_2x': 'public/icons/iphone_2x.png',
     'ios_settings_3x': 'public/icons/iphone_3x.png',
@@ -57,14 +59,9 @@ App.setPreference('StatusBarStyle', "lightcontent");
 
 //SplashScreen
 App.setPreference('SplashScreenDelay', 3000);
-App.setPreference('AutoHideSplashScreen', true);
-App.setPreference('SplashShowOnlyFirstTime', false);
-App.setPreference('SplashShowOnlyFirstTime', false);
-
-App.configurePlugin('cordova-plugin-splashscreen', {
-    GUIDE_DEF_NUM: 0
-});
 
 
 
 App.accessRule("*://*");
+App.accessRule("cdvfile://*");
+App.accessRule("cdvfile://*", {type:'intent'});
